@@ -14,18 +14,18 @@ function randome_color() {
 }
 
 // create a grid and place in grid container
-function draw_grid(height, width) {
+function draw_grid(size) {
     // delete all leftover divs from previous window
     while (grid_container.firstChild) grid_container.removeChild( grid_container.firstChild );
 
     // draw grid with specified dimensions
-    for (let i = 0; i < height; i++) {
+    for (let i = 0; i < size; i++) {
         const grid_row = document.createElement('div');
         grid_row.style.flex = 1;
         grid_row.style.display = 'flex';
         grid_row.style.flexFlow = "row";
         grid_container.appendChild(grid_row)
-        for (let j = 0; j < width; j++) {
+        for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.style.flex = 1;
             div.classList.add('grid_item');
@@ -44,17 +44,14 @@ function draw_grid(height, width) {
     });
 }
 
-draw_grid(16, 16);
+draw_grid(16);
 
 
-// Add a button that resizes grid container based on user input
-const grid_sizer = document.querySelector('#grid_sizer');
-grid_sizer.addEventListener('click', () => {
-    do {
-        grid_height = prompt('Enter grid height: ');
-    } while (grid_height < 1 || grid_height > 100);
-    do {
-        grid_width = prompt('Enter grid width: ');
-    } while (grid_width < 1 || grid_width > 100);
-    draw_grid(grid_height, grid_width);
+//Add a button that resizes grid container based on user input
+const grid_sizer = document.getElementById('grid_sizer');
+const sizer_label = document.getElementById('range_label');
+grid_sizer.addEventListener('change', (event) => {
+    let new_label = grid_sizer.value + ' x ' + grid_sizer.value;
+    sizer_label.textContent = new_label;
+    draw_grid(grid_sizer.value);
 })
