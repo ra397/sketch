@@ -1,7 +1,4 @@
-const grid_container = document.querySelector('.grid_container');
-grid_container.style.display = 'flex';
-grid_container.style.flexFlow = "column";
-
+let grid_size = 16; // the length of one side of the box grid
 
 // helper function that generates a random color
 function randome_color() {
@@ -32,26 +29,37 @@ function draw_grid(size) {
             grid_row.appendChild(div);
         }
     }
-
     // add hovering effect over each grid item
     const grid_items = document.querySelectorAll('.grid_item');
     grid_items.forEach((grid_item) => {
 
         // and for each one we add a 'click' listener
         grid_item.addEventListener('mouseover', function (e) {
-        e.target.style.background = randome_color();
+            e.target.style.background = randome_color();
         });
     });
 }
 
-draw_grid(16);
+// create a reference for grid_container div
+const grid_container = document.querySelector('.grid_container');
+grid_container.style.display = 'flex';
+grid_container.style.flexFlow = "column";
 
 
-// Add a button that resizes grid container based on user input
+draw_grid(grid_size); // draw a 16x16 grid inside grid_container
+
+// Add a range input that resizes grid container based on user input
 const grid_sizer = document.getElementById('grid_sizer');
 const sizer_label = document.getElementById('range_label');
 grid_sizer.addEventListener('change', (event) => {
     let new_label = grid_sizer.value + ' x ' + grid_sizer.value;
     sizer_label.textContent = new_label;
     draw_grid(grid_sizer.value);
+    grid_size = grid_sizer.value;
+})
+
+// Add a clear button that clears the grid
+const clear_button = document.getElementById('clear');
+clear_button.addEventListener('click', () => {
+    draw_grid(grid_size)
 })
