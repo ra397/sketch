@@ -16,7 +16,6 @@ function draw_grid(height, width) {
         grid_container.appendChild(grid_row)
         for (let j = 0; j < width; j++) {
             const div = document.createElement('div');
-            div.textContent = "DIV";
             div.style.flex = 1;
             div.classList.add('grid_item');
             grid_row.appendChild(div);
@@ -40,7 +39,11 @@ draw_grid(16, 16);
 // Add a button that resizes grid container based on user input
 const grid_sizer = document.querySelector('#grid_sizer');
 grid_sizer.addEventListener('click', () => {
-    grid_height = prompt('Enter grid height: ');
-    grid_width = prompt('Enter grid width: ');
+    do {
+        grid_height = prompt('Enter grid height: ');
+    } while (grid_height < 1 || grid_height > 100);
+    do {
+        grid_width = prompt('Enter grid width: ');
+    } while (grid_width < 1 || grid_width > 100);
     draw_grid(grid_height, grid_width);
 })
