@@ -2,6 +2,17 @@ const grid_container = document.querySelector('.grid_container');
 grid_container.style.display = 'flex';
 grid_container.style.flexFlow = "column";
 
+
+// helper function that generates a random color
+function randome_color() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+}
+
 // create a grid and place in grid container
 function draw_grid(height, width) {
     // delete all leftover divs from previous window
@@ -28,7 +39,7 @@ function draw_grid(height, width) {
 
         // and for each one we add a 'click' listener
         grid_item.addEventListener('mouseover', function (e) {
-        e.target.style.background = 'blue';
+        e.target.style.background = randome_color();
         });
     });
 }
