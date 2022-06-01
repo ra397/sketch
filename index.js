@@ -1,23 +1,41 @@
-// create a 16x16 grid and place in grid container
 const grid_container = document.querySelector('.grid_container');
 
-for (let i = 0; i < 16; i++) {
-    const grid_row = document.createElement('div');
-    grid_row.style.display = 'flex';
-    grid_container.appendChild(grid_row)
-    for (let j = 0; j < 16; j++) {
-        const div = document.createElement('div');
-        div.textContent = "DIV";
-        div.classList.add('grid_item');
-        grid_row.appendChild(div);
+// create a grid and place in grid container
+function draw_grid(height, width) {
+    // delete all leftover divs from previous window
+    while (grid_container.firstChild) grid_container.removeChild( grid_container.firstChild );
+
+    // draw grid with specified dimensions
+    for (let i = 0; i < height; i++) {
+        const grid_row = document.createElement('div');
+        grid_row.style.display = 'flex';
+        grid_container.appendChild(grid_row)
+        for (let j = 0; j < width; j++) {
+            const div = document.createElement('div');
+            div.textContent = "DIV";
+            div.classList.add('grid_item');
+            grid_row.appendChild(div);
+        }
     }
+
+    // add hovering effect over each grid item
+    const grid_items = document.querySelectorAll('.grid_item');
+    grid_items.forEach((grid_item) => {
+
+        // and for each one we add a 'click' listener
+        grid_item.addEventListener('mouseover', function (e) {
+        e.target.style.background = 'blue';
+        });
+    });
 }
 
-const grid_items = document.querySelectorAll('.grid_item');
-grid_items.forEach((grid_item) => {
+draw_grid(16, 16);
 
-    // and for each one we add a 'click' listener
-    grid_item.addEventListener('mouseover', function (e) {
-      e.target.style.background = 'blue';
-    });
-});
+
+// Add a button that resizes grid container based on user input
+const grid_sizer = document.querySelector('#grid_sizer');
+grid_sizer.addEventListener('click', () => {
+    grid_height = prompt('Enter grid height: ');
+    grid_width = prompt('Enter grid width: ');
+    draw_grid(grid_height, grid_width);
+})
