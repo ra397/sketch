@@ -12,11 +12,12 @@ function draw_grid(height, width) {
         const grid_row = document.createElement('div');
         grid_row.style.flex = 1;
         grid_row.style.display = 'flex';
+        grid_row.style.flexFlow = "row";
         grid_container.appendChild(grid_row)
         for (let j = 0; j < width; j++) {
             const div = document.createElement('div');
             div.textContent = "DIV";
-            div.style.width = '100%';
+            div.style.flex = 1;
             div.classList.add('grid_item');
             grid_row.appendChild(div);
         }
