@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+.resize_container {
+    text-align: center;
+    padding: 25px;
+}
+
+.grid_container {
+    border: 1px solid blue;
+    min-width: 500px;
+    min-height: 500px;
+    height: 100%;
+    margin: 50px;
+}
