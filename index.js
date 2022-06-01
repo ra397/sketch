@@ -1,4 +1,6 @@
 const grid_container = document.querySelector('.grid_container');
+grid_container.style.display = 'flex';
+grid_container.style.flexFlow = "column";
 
 // create a grid and place in grid container
 function draw_grid(height, width) {
@@ -8,11 +10,13 @@ function draw_grid(height, width) {
     // draw grid with specified dimensions
     for (let i = 0; i < height; i++) {
         const grid_row = document.createElement('div');
+        grid_row.style.flex = 1;
         grid_row.style.display = 'flex';
         grid_container.appendChild(grid_row)
         for (let j = 0; j < width; j++) {
             const div = document.createElement('div');
             div.textContent = "DIV";
+            div.style.width = '100%';
             div.classList.add('grid_item');
             grid_row.appendChild(div);
         }
