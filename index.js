@@ -47,7 +47,7 @@ function draw_grid(size) {
 draw_grid(16);
 
 
-//Add a button that resizes grid container based on user input
+// Add a button that resizes grid container based on user input
 const grid_sizer = document.getElementById('grid_sizer');
 const sizer_label = document.getElementById('range_label');
 grid_sizer.addEventListener('change', (event) => {

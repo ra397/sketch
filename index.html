@@ -7,10 +7,23 @@
     </head>
     <body>
         <h1>Sketch App!</h1>
-        <div class="grid_container"></div>
-        <div class="resize_container">
-            <input type="range" id="grid_sizer" min="1" max="100" value="16" step="2">
-            <label id="range_label">16 &times; 16</label>
+        <div class="page_container">
+            <div class="toolbar_container">
+                <p><strong>Toolbar</strong></p>
+                <div class="color_chooser">
+                    <label id="color_label">Choose Color:</label>
+                    <input type="color" id="html5colorpicker" value="#ff0000" placeholder="Choose Color">
+                </div>
+                <button type="input" class="toolbar_button">Eraser</button>
+                <button type="input" class="toolbar_button">Clear</button>
+            </div>
+            <div class="output_container">
+                <div class="grid_container"></div>
+                <div class="resize_container">
+                    <input type="range" id="grid_sizer" min="1" max="100" value="16" step="1">
+                    <label id="range_label">16 &times; 16</label>
+                </div>
+            </div>
         </div>
     </body>
 </html>

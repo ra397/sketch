@@ -1,14 +1,48 @@
 h1 {
     text-align: center;
+    margin-bottom: 35px;
+}
+
+.page_container{
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+.toolbar_container {
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 20px;
+    border:8px outset #999;
+}
+
+.toolbar_container * {
+    margin-bottom: 25px;
+}
+
+.color_chooser {
+    display: flex;
+}
+
+#html5colorpicker:hover {
+    cursor: pointer;
+}
+
+.toolbar_button {
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .grid_container {
-    border: 1px solid blue;
+    border: 1px solid rgb(0, 0, 0);
     min-width: 500px;
     width: 500px;
     min-height: 500px;
     height: 100%;
-    margin: 25px auto;
 }
 
 .resize_container {
