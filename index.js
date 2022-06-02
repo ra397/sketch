@@ -1,5 +1,6 @@
 let grid_size = 16; // the length of one side of the box grid
-let color = 'black';
+let color = 'red';
+let drawing = false;
 
 // create a reference for grid_container div
 const grid_container = document.querySelector('.grid_container');
@@ -28,8 +29,13 @@ clear_button.addEventListener('click', () => {
 // Add an erase button that changes color to white
 const eraser_button = document.getElementById('eraser');
 eraser_button.addEventListener('click', () => {
-    console.log('clicked');
     color = 'white';
+});
+
+// Add a color button that chooses color
+const color_button = document.getElementById('html5colorpicker');
+color_button.addEventListener('input', () => {
+    color = color_button.value;
 });
 
 
@@ -37,7 +43,6 @@ eraser_button.addEventListener('click', () => {
 
 // helper function that generates a random color
 function get_color() {
-    console.log(color)
     return color;
 }
 
@@ -65,10 +70,17 @@ function draw_grid(size) {
     const grid_items = document.querySelectorAll('.grid_item');
 
     grid_items.forEach((grid_item) => {
-
         // and for each one we add a 'mouseover' listener
-        grid_item.addEventListener('mouseover', function (e) {
-            e.target.style.background = get_color();
+        grid_item.addEventListener('mousedown', () => {
+            drawing = true;
+        });
+        grid_item.addEventListener('mouseup', () => {
+            drawing = false;
+        });
+        grid_item.addEventListener('mouseover', function(e) {
+            if (drawing) {
+                e.target.style.backgroundColor = color;
+            }
         });
     });
 }
