@@ -1,44 +1,5 @@
 let grid_size = 16; // the length of one side of the box grid
-
-// helper function that generates a random color
-function randome_color() {
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-}
-
-// create a grid and place in grid container
-function draw_grid(size) {
-    // delete all leftover divs from previous window
-    while (grid_container.firstChild) grid_container.removeChild( grid_container.firstChild );
-
-    // draw grid with specified dimensions
-    for (let i = 0; i < size; i++) {
-        const grid_row = document.createElement('div');
-        grid_row.style.flex = 1;
-        grid_row.style.display = 'flex';
-        grid_row.style.flexFlow = "row";
-        grid_container.appendChild(grid_row)
-        for (let j = 0; j < size; j++) {
-            const div = document.createElement('div');
-            div.style.flex = 1;
-            div.classList.add('grid_item');
-            grid_row.appendChild(div);
-        }
-    }
-    // add hovering effect over each grid item
-    const grid_items = document.querySelectorAll('.grid_item');
-    grid_items.forEach((grid_item) => {
-
-        // and for each one we add a 'click' listener
-        grid_item.addEventListener('mouseover', function (e) {
-            e.target.style.background = randome_color();
-        });
-    });
-}
+let color = 'black';
 
 // create a reference for grid_container div
 const grid_container = document.querySelector('.grid_container');
@@ -63,3 +24,51 @@ const clear_button = document.getElementById('clear');
 clear_button.addEventListener('click', () => {
     draw_grid(grid_size)
 })
+
+// Add an erase button that changes color to white
+const eraser_button = document.getElementById('eraser');
+eraser_button.addEventListener('click', () => {
+    console.log('clicked');
+    color = 'white';
+});
+
+
+ /*FUNCTIONS*/
+
+// helper function that generates a random color
+function get_color() {
+    console.log(color)
+    return color;
+}
+
+
+// create a grid and place in grid container
+function draw_grid(size) {
+    // delete all leftover divs from previous window
+    while (grid_container.firstChild) grid_container.removeChild( grid_container.firstChild );
+
+    // draw grid with specified dimensions
+    for (let i = 0; i < size; i++) {
+        const grid_row = document.createElement('div');
+        grid_row.style.flex = 1;
+        grid_row.style.display = 'flex';
+        grid_row.style.flexFlow = "row";
+        grid_container.appendChild(grid_row)
+        for (let j = 0; j < size; j++) {
+            const div = document.createElement('div');
+            div.style.flex = 1;
+            div.classList.add('grid_item');
+            grid_row.appendChild(div);
+        }
+    }
+    // add hovering effect over each grid item
+    const grid_items = document.querySelectorAll('.grid_item');
+
+    grid_items.forEach((grid_item) => {
+
+        // and for each one we add a 'mouseover' listener
+        grid_item.addEventListener('mouseover', function (e) {
+            e.target.style.background = get_color();
+        });
+    });
+}
