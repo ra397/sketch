@@ -48,3 +48,10 @@ h1 {
 .resize_container {
     text-align: center;
 }
+
+.footer {
+    margin: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
