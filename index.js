@@ -42,6 +42,12 @@ color_button.addEventListener('input', () => {
     drawing = false;
 });
 
+// Add a save button that saves grid_container as an image
+const save_button = document.getElementById('save');
+save_button.addEventListener('click', function(e) {
+    console.log('I do nothing, .. yet');
+})
+
 
  /*FUNCTIONS*/
 
