@@ -18,24 +18,28 @@ grid_sizer.addEventListener('change', (event) => {
     sizer_label.textContent = new_label;
     draw_grid(grid_sizer.value);
     grid_size = grid_sizer.value;
+    drawing = false;
 })
 
 // Add a clear button that clears the grid
 const clear_button = document.getElementById('clear');
 clear_button.addEventListener('click', () => {
-    draw_grid(grid_size)
+    draw_grid(grid_size);
+    drawing = false;
 })
 
 // Add an erase button that changes color to white
 const eraser_button = document.getElementById('eraser');
 eraser_button.addEventListener('click', () => {
     color = 'white';
+    drawing = false;
 });
 
 // Add a color button that chooses color
 const color_button = document.getElementById('html5colorpicker');
 color_button.addEventListener('input', () => {
     color = color_button.value;
+    drawing = false;
 });
 
 
