@@ -1,7 +1,15 @@
 let grid_size = 16; // the length of one side of the box grid
 let color = 'red';
+
 let drawing = false;
 
+document.body.onmousedown = function() { 
+    drawing = true;
+}
+
+document.body.onmouseup = function() {
+    drawing = false;
+}
 // create a reference for grid_container div
 const grid_container = document.querySelector('.grid_container');
 grid_container.style.display = 'flex';
