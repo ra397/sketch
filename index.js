@@ -10,11 +10,11 @@ document.body.onmousedown = function() {
 document.body.onmouseup = function() {
     drawing = false;
 }
+
 // create a reference for grid_container div
 const grid_container = document.querySelector('.grid_container');
 grid_container.style.display = 'flex';
 grid_container.style.flexFlow = "column";
-
 
 draw_grid(grid_size); // draw a 16x16 grid inside grid_container
 
@@ -61,8 +61,6 @@ save_button.addEventListener("click", () => {
         a.click()
     });
 });
-
-
 
  /*FUNCTIONS*/
 
