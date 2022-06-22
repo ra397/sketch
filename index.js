@@ -43,10 +43,17 @@ color_button.addEventListener('input', () => {
 });
 
 // Add a save button that saves grid_container as an image
-const save_button = document.getElementById('save');
-save_button.addEventListener('click', function(e) {
-    console.log('I do nothing, .. yet');
-})
+let save_button = document.getElementById("save");
+save_button.addEventListener("click", () => {
+    window.scrollTo(0,0);
+    html2canvas(grid_container, { letterRendering: 1,useCORS: true } ).then(function(canvas) {
+        const a = document.createElement('a')
+        a.href = canvas.toDataURL("image/png")
+        a.download="sketch.png"
+        a.click()
+    });
+});
+
 
 
  /*FUNCTIONS*/

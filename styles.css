@@ -1,10 +1,12 @@
 body {
-    background-color: rgba(170, 113, 172, 0.432);
+    background-color: rgba(185, 149, 82, 0.432);
 }
 
 h1 {
     text-align: center;
     padding: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 .page_container{
