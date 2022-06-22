@@ -48,11 +48,15 @@ h1 {
 
 .grid_container {
     border: 3px solid rgb(0, 0, 0);
-    min-width: 500px;
-    width: 500px;
+    min-width: 875px;
+    width: 875px;
     min-height: 500px;
     height: 100%;
     background-color: white;
+}
+
+.grid_container:hover {
+    cursor: crosshair;
 }
 
 .resize_container {
