@@ -2,13 +2,18 @@
 <html lang="en">
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/styles.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles.css">
         <script src="../static/index.js" defer></script>
         <script src="../static/html2canvas.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>sketch</h1>
+        <div id="header">
+            <h1>sketch</h1>
+            <div id="explore">
+                <a href="{{ url_for('explore') }}">Explore</a>
+            </div>
+        </div>
         <div class="page_container">
             <div class="toolbar_container">
                 <p><strong>Toolbar</strong></p>

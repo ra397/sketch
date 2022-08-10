@@ -2,11 +2,25 @@ body {
     background-color: rgba(185, 149, 82, 0.432);
 }
 
+#header {
+    display: flex;
+}
+
 h1 {
     text-align: center;
     padding: 17px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    flex: 2.5;
+}
+
+#explore {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    padding: 15px;
 }
 
 .page_container{
